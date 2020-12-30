@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <title>Hello Django for Bert Similairty!</title>
+
+   <link rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+         crossorigin="anonymous">
+</head>
+<body>
+<main class="container">
+   <div class="row text-center justify-content-center">
+       <div class="col">
+           <h1 class="display-7">Let's Compute Text Similarity Using BERT Embedding!</h1>
+       </div>
+   </div>
+   <form action = "/compute/" method = "get">
+        {% csrf_token %}
+        {{ q_form }}
+        <input type="submit" value="Submit">
+    </form>
+    <div class="fieldWrapper">
+        {{ a_form.result.label_tag }}{{ a_form.result }}
+    </div>
+    <div class="fieldWrapper">
+        {{ a_form.embedding1.label_tag }} {{ a_form.embedding1 }}
+        {{ a_form.embedding2.label_tag }} {{ a_form.embedding2 }}
+    </div>
+</main>
+</body>
+</html>
