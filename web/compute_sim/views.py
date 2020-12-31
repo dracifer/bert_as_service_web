@@ -26,7 +26,7 @@ def compute(request):
   if request.method == 'GET':
     q_form = ComputeSimForm(request.GET)
     if q_form.is_valid():
-      bc = BertClient()
+      bc = BertClient(ip="bas-server:5555")
       embeddings = bc.encode([q_form.cleaned_data["text1"], q_form.cleaned_data["text2"]])
       assert len(embeddings) == 2
       a_form = AnswerForm(initial={'embedding1': embeddings[0].tolist(), 'embedding2': embeddings[1].tolist()})
