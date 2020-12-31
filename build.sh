@@ -17,5 +17,5 @@ fi
 
 #poetry shell
 #bert-serving-start -model_dir backend/model/uncased_L-12_H-768_A-12 -num_worker=1
-python3 manage.py collectstatic --no-input
-python3 manage.py migrate
+python3 web/manage.py collectstatic --no-input
+python3 web/manage.py migrate
