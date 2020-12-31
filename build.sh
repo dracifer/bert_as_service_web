@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
 # exit on error
 set -o errexit
+
+sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
 
 echo "Install poetry"
 poetry install
