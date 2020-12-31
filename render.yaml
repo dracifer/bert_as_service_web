@@ -1,0 +1,20 @@
+databases:
+ - name: bert_sim_main
+   databaseName: bert_sim_main
+   user: bert_sim_main
+
+services:
+ - type: web
+   name: bert_sim_main
+   env: python
+   buildCommand: "./build.sh"
+   startCommand: "gunicorn bert_sim_main.wsgi:application"
+   envVars:
+     - key: DATABASE_URL
+       fromDatabase:
+         name: bert_sim_main
+         property: connectionString
+     - key: SECRET_KEY
+       generateValue: true
+     - key: WEB_CONCURRENCY
+       value: 4
